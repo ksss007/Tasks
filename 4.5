@@ -1,0 +1,65 @@
+                                                                 
+
+Задание 4.5
+
+Из строк command1 и command2 получить список VLANов, которые есть и в команде command1 и в команде command2.
+
+Результатом должен быть список: ['1', '3', '8']
+
+Ограничение: Все задания надо выполнять используя только пройденные темы.
+
+command1 = 'switchport trunk allowed vlan 1,2,3,5,8'
+command2 = 'switchport trunk allowed vlan 1,3,8,9'
+
+
+
+
+In [73]: command1 = 'switchport trunk allowed vlan 1,2,3,5,8'                   
+
+In [74]: command2 = 'switchport trunk allowed vlan 1,3,8,9'                     
+
+In [75]: spl_com1=command1.split()                                              
+
+In [76]: end_el_com1=spl_com1[-1]                                               
+
+In [77]: print(end_el_com1)                                                     
+1,2,3,5,8
+
+In [79]: set_end_el_com1 = set(spl_com1[-1])                                    
+
+In [80]: print(set_end_el_com1)                                                 
+{'3', '5', '8', '2', ',', '1'}
+
+
+
+                                             
+
+In [82]: spl_com2=command2.split()                                              
+
+In [83]: end_el_com2=spl_com2[-1]                                               
+
+In [84]: print(end_el_com2)                                                     
+1,3,8,9
+
+In [85]: set_end_el_com2 = set(spl_com2[-1])                                    
+
+In [86]: print(set_end_el_com2)                                                 
+{'3', '9', '8', ',', '1'}
+
+
+In [96]: out=list(set_end_el_com2.intersection(set_end_el_com1))                
+
+In [97]: print(out)                                                             
+['3', ',', '1', '8']
+
+In [98]: out.pop(1)                                                             
+Out[98]: ','
+
+In [99]: print(out)                                                             
+['3', '1', '8']
+
+In [105]: out.sort()                                                            
+
+In [106]: print(out)                                                            
+['1', '3', '8']
+
