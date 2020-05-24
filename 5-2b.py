@@ -1,3 +1,5 @@
+#Задание 5.2b.py
+
 from sys import argv
 s_ip = argv[1]
 s_mask = argv[2]
