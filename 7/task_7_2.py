@@ -15,21 +15,13 @@
 from sys import argv
 
 file = argv[1]
-m = []
-m1 = []
 with open(file, 'r') as f:
     for line in f:
-        f1 = line.split()
-        if f1:
-            m.append(f1)
-    for el in m:
-        if el == ['!']:
-            a = int(m.index(el))
-            m.pop(a)
-
-    print(el)
-print(m)
-print(a, m[-2])
-a = m[1][0]
-b = m[2][0]
-print(a, b)
+        if line.startswith('!'):
+            continue
+        if line.startswith('Current'):
+            continue
+        if line.startswith('version'):
+            continue
+        else:
+            print(line.rstrip())
