@@ -14,10 +14,7 @@
 '''
 
 from sys import argv
-
 ignore = ['duplex', 'alias', 'Current configuration']
-
-from sys import argv
 
 file = argv[1]
 with open(file, 'r') as f, open('config_sw1_cleared.txt', 'w') as tf:
